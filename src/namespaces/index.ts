@@ -1,5 +1,1 @@
-export * from './base'
-export * from './host'
-export * from './player'
-export * from './cr'
-export * from './admin'
+export * from './main'

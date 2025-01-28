@@ -5,10 +5,8 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'production']),
     PORT: z.string(),
-    ORIGINS: z.string(),
-    NEON_DATABASE_URL: z.string(),
-    REDIS_URL: z.string(),
-    DEV_IP_ADDRESS: z.string().default('168.63.129.16'),
+    SOCKETIO_ORIGINS: z.string(),
+    KEYDB_URL: z.string(),
   },
   runtimeEnv: process.env,
 })

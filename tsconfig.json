@@ -21,10 +21,9 @@
       "@/io*": ["src/io.ts"],
       "@/utils": ["src/utils/index.ts"],
       "@/types": ["src/types"],
-      "@/sqlDb/*": ["src/db/sqlDb/*"],
       "@/schema/*": ["src/db/sqlDb/schema/*"],
       "@/middleware": ["src/middleware/index.ts"],
-      "@/redis": ["src/db/redis/index.ts"],
+      "@/keydb": ["src/db/keydb/index.ts"],
       "@/constants": ["src/constants/index.ts"]
     },
     // Bundler mode

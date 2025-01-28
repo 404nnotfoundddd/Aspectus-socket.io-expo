@@ -1,12 +1,8 @@
+import { main } from './namespaces'
 import { runAll } from './utils'
-import { admin, base, cr, host, player } from './namespaces'
 
 runAll(
-  base,
-  host,
-  player,
-  admin,
-  cr,
+    main,
 )
 
 console.log(`------------------------------- \n \n`)

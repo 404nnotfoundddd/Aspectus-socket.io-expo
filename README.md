@@ -1,5 +1,3 @@
-Socketio server for pixgu
-
 Requirements:
 
 - Node.js 20.x

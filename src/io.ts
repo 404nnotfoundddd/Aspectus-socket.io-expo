@@ -1,6 +1,5 @@
 import { Server, type ServerOptions } from 'socket.io'
 import { createServer } from 'node:http'
-import { VERSION } from './constants'
 import express from 'express'
 import { env } from './env'
 import chalk from 'chalk'
@@ -10,12 +9,11 @@ const port = parseInt(env.PORT)
 const app = express()
 const server = createServer(app)
 const serverOptions: Partial<ServerOptions> = {
-  /* options here */
-
   cors: {
-    origin: env.ORIGINS.split(','),
+    origin: env.SOCKETIO_ORIGINS.split(','),
     credentials: true,
   },
+
 }
 
 log(
@@ -25,7 +23,6 @@ log(
         socketio: serverOptions,
         env: env,
         port: port,
-        version: VERSION,
       },
       null,
       2,

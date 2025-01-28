@@ -4,10 +4,7 @@
   "packageManager": "bun@1.1.7",
   "scripts": {
     "dev": "npx tsx watch --env-file=.env src/server.ts",
-    "prod": "npx tsx --env-file=.env src/server.ts ",
-    "redis:seed": "npx tsx --env-file=.env src/db/redis/seed/index.ts",
-    "version:changed": "npx tsx --env-file=.env src/helpers/versionChanged.ts",
-    "version:change": "npx tsx --env-file=.env src/helpers/setLastVersion.ts"
+    "prod": "npx tsx --env-file=.env src/server.ts "
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -16,30 +13,18 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.7",
-    "@lucia-auth/adapter-drizzle": "^1.1.0",
-    "@neondatabase/serverless": "^0.10.4",
     "@paralleldrive/cuid2": "^2.2.2",
     "@t3-oss/env-core": "^0.11.1",
+    "@types/bcryptjs": "^2.4.6",
     "@types/chalk": "^2.2.0",
     "@types/express": "^5.0.0",
-    "@types/simple-peer": "^9.11.8",
-    "@xata.io/client": "^0.30.1",
+    "bcryptjs": "^2.4.3",
     "chalk": "^5.3.0",
     "dotenv": "^16.4.7",
-    "drizzle-kit": "^0.30.1",
-    "drizzle-orm": "^0.38.2",
     "express": "^4.18.2",
-    "fastify": "^5.2.0",
-    "fastify-socket.io": "^5.1.0",
-    "hono": "^4.6.14",
     "ioredis": "^5.4.1",
-    "lucia": "^3.2.0",
-    "maxmind": "^4.3.22",
     "socket.io": "^4.8.0",
-    "socket.io-client": "^4.8.0",
     "tsx": "^4.19.2",
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.4.0",
     "zod": "^3.23.8"
   }
 }
