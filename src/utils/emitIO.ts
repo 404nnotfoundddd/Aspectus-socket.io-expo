@@ -1,7 +1,6 @@
 import type { BroadcastOperator, Namespace, Server, Socket } from 'socket.io'
 import { z, ZodSchema } from 'zod'
-import { logErr } from '@/utils'
-import type { AllSocketTypes } from '@/types'
+import { logErr, logInfo } from '@/utils'
 
 /**
  * emitIO is a utility to emit data to a socket.io client.
@@ -32,6 +31,8 @@ export const emitIO: EmitIO = () => ({
 
   emit: function <T extends ZodSchema>(io: IO, ev: string, input: z.infer<T>) {
     try {
+      logInfo(`sent emitIO output at ${ev}`, input)
+
       const validatedOutput = (() => {
         if (!this.data.outputSchema) throw new Error('outputSchema is not set')
         return this.data.outputSchema.parse(input)
@@ -47,7 +48,7 @@ export const emitIO: EmitIO = () => ({
   }
 })
 
-type IO = Server | Namespace | AllSocketTypes | BroadcastOperator<any, any>
+type IO = Server | Namespace | Socket | BroadcastOperator<any, any>
 
 type EmitIO = () => {
   data: {

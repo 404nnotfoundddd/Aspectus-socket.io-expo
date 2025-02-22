@@ -1,6 +1,7 @@
 import { z, ZodSchema } from 'zod'
-import type { AllSocketTypes } from '../types'
 import { logErr } from './logErr'
+import type { Socket } from 'socket.io'
+import { logInfo } from './logInfo'
 
 /**
  * onIO is a utility to handle on input from socket.io
@@ -28,17 +29,19 @@ export const onIO: onIO = () => ({
   ) {
     io.on(ev, (input: unknown) => {
       try {
+        logInfo(`received onIO input at ${ev}`, input)
         const validatedInput = this.data.schema.parse(input)
         cb(validatedInput)
       } catch (e) {
         logErr(`invalid input recevied at ${ev}`, e as Error)
+
         return
       }
     })
   },
 })
 
-type IO = AllSocketTypes
+type IO = Socket
 
 type onIO = () => {
   data: {
